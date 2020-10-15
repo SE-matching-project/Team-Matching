@@ -3,3 +3,9 @@ body{
   text-align: center;
   vertical-align: center;
 }
+#Sign{
+  display : none;
+}
+#Choice{
+  display : none;
+}

@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   <link  href="SeCss.css" rel="stylesheet"/>
+
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
   <title>Team Matching Project</title>
 </head>
 <body>
@@ -15,9 +19,33 @@
         <td>PW</td><td><input type="password" id="password"></td>
       </tr>
     </table><br>
-    <input type="button" id="login">
-    <input type="button" id="signin">
+    <input type="button" value="login" id="login">
+    <input type="button" value="sign" id="signin">
   </div>
-
+  <div id="Sign">
+    <table id="signtable">
+      <tr>
+        <td>Name</td><td><input type="text" id="name"></td>
+      </tr>
+      <tr>
+        <td>E-mail</td><td><input type="text" id="mail"></td>
+      </tr>
+      <tr>
+        <td>ID</td><td><input type="text" id="signid"></td><td><input type="button" value="check" ></td>
+      </tr>
+      <tr>
+        <td>PW</td><td><input type="password" id="signpw"></td>
+      </tr>
+    </table><br>
+    <input type="button" value="가입" id="join">
+  </div>
+  <div id="Choice"> <!매칭을 위한 선택 화면>
+    <table id="signtable">
+      <tr>
+        <td><input type="button" value="CLASS" id="class"></td><td><input type="button" value="GRADUATION" id="gradu"></td>
+      </tr>
+    </table><br>
+  </div>
+   <srcrip src="Script.js"></script>
 </body>
 </html>
