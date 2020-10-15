@@ -1,6 +1,4 @@
 # Software Engineering Team Project
-
-## TEAM MEMBER
 201802066 김소영
 201802085 김효린
 201802094 박소희
