@@ -9,3 +9,13 @@ body{
 #Choice{
   display : none;
 }
+
+
+#TimeTable,#TimeTable th,#TimeTable td,#TimeTable tr{
+  border: 3px solid #ffffff;
+  border-collapse: collapse;
+}
+#TimeTable2,#TimeTable2 th,#TimeTable2 td,#TimeTable2 tr{
+  border: 3px solid #ffffff;
+  border-collapse: collapse;
+}

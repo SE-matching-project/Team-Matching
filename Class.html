@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <link  href="SeCss.css" rel="stylesheet"/>
+  <link  href="MCss.css" rel="stylesheet"/>
 
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-  <title>Team Matching Project</title>
+  <title>CLASS MATCHING</title>
 </head>
 <body>
   <div id="First">
@@ -16,7 +16,16 @@
         <td>강의</td>
       </tr>
       <tr>
-
+        <td><input type="radio" name="chk_score" value="SE">소프트웨어공학</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="chk_score" value="CN">컴퓨터네트워크</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="chk_score" value="GS">공개소프트웨어실습</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="chk_score" value="GZ">객체지향설계</td>
       </tr>
     </table><br>
     <input type="button" value="Next" id="next1">
@@ -26,16 +35,50 @@
       <tr>
         <td>성별</td>
       </tr>
-
+      <tr>
+        <td><input type="radio" name="chk_gender" value="mas">남자</td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="chk_gender" value="woman">여자</td>
+      </tr>
     </table><br>
     <input type="button" value="Next" id="next2">
   </div>
-  <div id="Tree">
-    <table id="Tree">
+  <div id="Three">
+    <table id="three">
       <tr>
         <td>학번</td>
       </tr>
-
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="11">11학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="12">12학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="13">13학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="14">14학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="15">15학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="16">16학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="17">17학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="18">18학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="19">19학번</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" name="chk_ID" value="20">20학번</td>
+      </tr>
     </table><br>
     <input type="button" value="Next" id="next3">
   </div>
@@ -44,10 +87,155 @@
       <tr>
         <td>가능한 시간대</td>
       </tr>
-
-    </table><br>
-    <input type="button" value="Submit" id="submit">
+      <table id="TimeTable">
+        <tr>
+          <td></td><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>11</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>12</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+          <td><input type="checkbox" name="chk_time" style="width:50px;height:50px;"></td>
+        </tr>
+      </table><br>
+    </table>
+    <a href="Chatting.html"><input type="button" value="Submit" id="submit"></a>
   </div>
-  <srcrip src="Script.js"></script>
-  </body>
-  </html>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="ClassJs.js"></script>
+</body>
+</html>

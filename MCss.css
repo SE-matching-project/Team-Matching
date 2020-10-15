@@ -1,0 +1,12 @@
+body{
+  background-color: #f3f3f6;
+  text-align: center;
+  vertical-align: center;
+}
+
+#Second,#Three,#Four{
+  display : none;
+}
+#Six,#Seven,#Eight{
+    display : none;
+}
