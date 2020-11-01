@@ -4,31 +4,32 @@ body {
     vertical-align: center;
 }
 
-#loginPage, #Sign, #Choice {
-    margin-top: 50%;
-    padding-bottom: 50%;
+#loginPage,
+#Sign,
+#Choice {
+    padding-top: 30%;
     font-weight: bold;
     letter-spacing: 2px;
 }
 
-#loginPage table, #Sign table, #Choice table {
+#loginPage table,
+#Sign table,
+#Choice table {
     display: inline-block;
     text-align: left;
     color: #f3f3f6;
 }
 
-#loginPage table input{
+#loginPage table input {
     color: black;
 }
 
 
-#Sign {
-    display: none;
-}
-
+#Sign,
 #Choice {
     display: none;
 }
+
 
 .btn {
     margin: 0.2em 0.1em;
@@ -43,16 +44,39 @@ body {
     padding: 0.3em 0.5em;
 
     overflow: hidden;
-    border-width: 0;
+    bo rder-width: 0;
     border-radius: 0.3em;
     background: #f3f3f6;
     -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    color: black;
 }
 
 .btn:hover,
 .btn:focus {
     opacity: 0.75;
+}
+
+#class {
+    background-color: #5260AE;
+    color: white;
+    width: 120px;
+    height: 100px;
+    margin-right: 0.6em;
+    letter-spacing: 0.1em;
+}
+
+#gradu {
+    background-color: white;
+    width: 120px;
+    height: 100px;
+    font-weight: 300;
+}
+
+#Choice img{
+    padding-top: 1.5em;
+    width: 40px;
+    margin-bottom: 0.6em;
 }
 
 #TimeTable,
