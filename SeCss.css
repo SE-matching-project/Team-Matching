@@ -20,10 +20,13 @@ body {
     color: #f3f3f6;
 }
 
-#loginPage table input {
+#loginPage table input, #Sign table input, #Choice table input{
     color: black;
 }
 
+td{
+    padding: 0.1em;
+}
 
 #Sign,
 #Choice {
@@ -79,6 +82,14 @@ body {
     margin-bottom: 0.6em;
 }
 
+#check{
+    padding: 0.2em 0.4em;
+    margin: 0;
+    margin-left: 0.2em;
+}
+
+
+/* 다른 페이지 */
 #TimeTable,
 #TimeTable th,
 #TimeTable td,
