@@ -20,11 +20,11 @@
                 <table id="logintable">
                     <tr>
                         <td>ID &nbsp;&nbsp; </td>
-                        <td><input type="text" id="ID"></td>
+                        <td><input type="text" id="ID" pattern="^([A-Za-z0-9]){6,15}"></td>
                     </tr>
                     <tr>
                         <td>PW &nbsp;&nbsp; </td>
-                        <td><input type="password" id="password"></td>
+                        <td><input type="password" id="password" pattern="^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*"></td>
                     </tr>
                 </table><br>
                 <button class="btn" value="login" id="login"> LOGIN </button>
