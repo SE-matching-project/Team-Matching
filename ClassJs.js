@@ -41,7 +41,7 @@ function info_class_save() {
       time:time_list
   };
 
-  url = "data/Class.json"//저장할 위치
+  url = "Class"//저장할 위치
   var sendFile = JSON.stringify(Obj);//json을 string으로
 
   $.ajax({
