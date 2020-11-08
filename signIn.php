@@ -14,12 +14,10 @@ function sign($jsonData){
         fwrite($pfile1, "\n");
         fwrite($pfile1, $jsonData);
         fclose($pfile1);
-        echo $jsonData;
     }else{
         $pfile1 = fopen("./data/member.json", "a+");
         fwrite($pfile1, $jsonData+"ww");
         fclose($pfile1);
-        echo $jsonData;
     }
     
 }

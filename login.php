@@ -28,6 +28,7 @@ function login($idVal,$pwVal){
         for ($row = 0; $row < count($infoArray); $row++) {
             if((strcmp($idVal,$infoArray[$row][0]) == 0) && (strcmp($pwVal,$infoArray[$row][1]) == 0)) {
                 $exist = true;
+                $_SESSION["id"] = $idVal;
                 break;
             }
           
