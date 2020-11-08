@@ -88,7 +88,7 @@ function login(){
       jsonData:myObj,
     },
     success: function(result){
-        alert(result+"회원가입이 완료되었습니다.");
+        alert("회원가입이 완료되었습니다.");
     }
   })
 }
