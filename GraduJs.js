@@ -38,7 +38,7 @@ function info_save() {
         time:time_list
     };
 
-    url = "data/Graduation.json"
+    url = "Graduation"
     var sendFile = JSON.stringify(Obj);
 
     $.ajax({
