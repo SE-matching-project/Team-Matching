@@ -1,6 +1,6 @@
 body {
     background-color: #f3f3f6;
-    text-align: left;
+    text-align: center;
     padding-left: 2em;
     vertical-align: text-top;
 }
@@ -27,12 +27,22 @@ table caption {
     margin-bottom: 0.8em;
 }
 
-#Second,
-#Three,
-#Four {
-    display: none;
+table td{
+    letter-spacing: 1px;
+    padding: 5px;
+}
+table td label{
+    margin-left: 20px;
 }
 
+/*가능한 시간대 표*/
+#TimeTable2 { 
+    text-align: center;
+}
+
+#Second,
+#Three,
+#Four,
 #Six,
 #Seven,
 #Eight {
