@@ -5,6 +5,10 @@ body {
     vertical-align: text-top;
 }
 
+#First,
+#Second,
+#Three,
+#Four,
 #Five,
 #Six,
 #Seven,
@@ -36,6 +40,7 @@ table td label{
 }
 
 /*가능한 시간대 표*/
+#TimeTable,
 #TimeTable2 { 
     text-align: center;
 }
