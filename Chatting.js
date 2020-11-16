@@ -1,59 +1,64 @@
-//========================== Socket-PubNub =============================
-var pubnub = PUBNUB.init({      //pubnub(채팅 서버) 생성
-    publish_key: 'pub-c-8aef3ab9-d748-4db5-ba35-a1be60ed7370',
-    subscribe_key: 'sub-c-f8ceab74-1c32-11eb-a660-060a09f46642',
-    ssl: true
-  });
-  let currentCh = "chat-1"; //채널 default 값
-  let channelNumber;
-  function setChannel(){
-    channelNumber = document.getElementById("inputChannel").value;
-    currentCh = "chat-" + channelNumber;    //원하는 채널로 변경
-    pubnub.subscribe({
-      channel: currentCh,
-      message: displayPub
-    });
-  
-    let currentID = document.getElementById("ID").innerHTML;
-    $.ajax({            //사용자의 id를 채널.txt에 작성하고 현재인원 return
-      url: './currentUSER.php',
-      type: 'post',
-      async: false,
-      data: {
-              channel   : currentCh,
-              userid : currentID
-            },
-      success: function(response){
-        numberOfPerson = parseInt(response);
-        alert("현재 인원 : " + response);
-      }
-    });
-  }
-  
-//================ 채팅 내용 불러오기 ===================
-  function displayPub(message){     //송신받은 메세지를 div로 만들어 append한다
-    var html = "<div>"+message.username+": "+message.text+"</div>";
-    $("#chatPub").append(html).scrollTop(999999);
-  }
-  
-  function sendPub(){       //메세지를 pubnub서버에 송신한다
-    if($("#messagePub").val() == '') return;
-    pubnub.publish({
-      channel: currentCh,
-      message:{
-        username: $("#name").val(),
-        text: $("#messagePub").val()
-      }
-    });
-    $("#messagePub").val('').focus();
-  }
-  
-  $(document).ready(function(){
-    $("#sendPub").click(function(){
-      sendPub();
-    });
-    $("#messagePub").keyup(function(event){
-      if(event.keyCode == 13) sendPub();
-    });
+function add(event){
+  var id_ = event.target.innerText;//방이름 
+  $.post("getInfo.php",
+  {
+    id : id_
+  },
+  function(data, status){
+    var option=data.split(" ");
+    if(option[0]=="SE"){//사용자가 그방에 대한 선택한 정보를 보기 쉽게 나타내기 위한 if문들
+      event.target.title="소프트 웨어 공학";
+    }
+    //event.target.title=data;
   });
   
+}
+$("#create_chatroom").click(function(){//채팅방 만들기 버튼 클릭하면 채팅방 만드는 함수 실행
+  createChatRoom();
+});
+
+let ID;//로그인한 아이디를 받을 변수
+
+$.ajax({
+  url:'Chatting.php',
+ 
+  success: function(id){
+    ID=id;//로그인한 아이디를 변수ID로 받는다.
+    alert("id");
+  }
+});
+
+
+function createChatRoom(){
+  var td_arr=document.getElementsByTagName("td");
+  for(let i=0; i<td_arr.length;i++){//채팅방 만들때 같은 사람이 여러개 방을 만들 수 없도록 같은 id이름인 채팅방은 못만든다.
+    if(td_arr[i].innerHTML==ID){//같은거 발견하면
+      return;//만들지 마라
+    }
+  }
+  var h= document.getElementById("chat_table");
+  var tr=document.createElement("tr");
+  var td=document.createElement("td");
+  td.innerHTML=ID;
+  var a= document.createElement("a");
+  a.href="./ChatRoom.php";
+  a.addEventListener("mouseover",function(e){
+    add(e);//선택한 정보 마우스 갔다되면 보이도록 함
+  });
+  a.addEventListener("click",function(e){
+    uploadchat(e);//채팅방 입장 했을때 입장한 방이름 나타냄
+  });
+  a.appendChild(td);
+  tr.appendChild(a);
+  h.appendChild(tr);//테이블에 추가 
+
+}
+
+function uploadchat(event) {//입장한 방이름(생성한 사람의 id)을 getChatRoom.php로 전달하는 함수
+  var id_ = event.target.innerText;
+  $.post("getChatRoom.php",
+  {
+    chatId : id_
+  });
+  
+}
