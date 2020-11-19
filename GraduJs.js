@@ -1,8 +1,9 @@
 document.getElementById("next5").addEventListener("click",change);
 document.getElementById("next6").addEventListener("click",change2);
 document.getElementById("next7").addEventListener("click",change3);
+// 다음 버튼이 클릭 되었을 때
 document.getElementById("Submit2").addEventListener("click",info_save);
-
+// 마지막에 제출 버튼이 클릭 되었을때
 function change(){
   $("#Five").css("display","none");
   $("#Six").css("display","block");
@@ -15,11 +16,12 @@ function change3(){
   $("#Seven").css("display","none");
   $("#Eight").css("display","block");
 }
+// 다음 화면으로 나타내게끔 하는 함수
 
 function info_save() {
-    var myObj, myJSON;
     var interest_ = $('input:radio[name="chk_title"]:checked').val();
     var gender_=$('input:radio[name="chk_gender"]:checked').val();
+    // 관심사, 성별 value 받음
     var id_list=[]
     $('input[name="chk_ID"]:checked').each(function(){
       var test=$(this).val();
@@ -30,7 +32,7 @@ function info_save() {
       var temp=$(this).val();
       time_list.push(temp);
     });
-
+// 학번들 과 시간대 배열을 받음 
     Obj = {
         interest: interest_,
         gender: gender_,
@@ -52,11 +54,12 @@ function info_save() {
                     fileName: url,
                 }
             });
+            // 선택한 정보 전달 graduation에서 선택한 정보임을 전달
             alert("upload완료");
         },
         error: function (result) {
             console.log(sendFile);
-            alert("FAILED 망할");
+            alert("FAILED");
         }
     });
 }

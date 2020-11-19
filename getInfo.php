@@ -19,6 +19,10 @@ $infoArray[]=$str["gender"];//성별
 $infoArray[]=$str["id"];//학번
 $infoArray[]=$str["time"];//시간대
 echo $infoArray[0]." ".$infoArray[1]." ";
+for ( $i=0;$i<count($infoArray[2]);$i++){
+    echo $infoArray[2][$i]."|";
+}
+
 
 //$t = json_encode($infoArray);
 //echo $txt; 

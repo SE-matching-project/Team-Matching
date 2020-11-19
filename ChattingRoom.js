@@ -1,5 +1,6 @@
 
-//========================== Socket-PubNub =============================
+//PubNub api 사용
+//참고 코드사이트:https://lasdri.tistory.com/835
 var pubnub = PUBNUB.init({      //pubnub(채팅 서버) 생성
     publish_key: 'pub-c-8aef3ab9-d748-4db5-ba35-a1be60ed7370',
     subscribe_key: 'sub-c-f8ceab74-1c32-11eb-a660-060a09f46642',
@@ -8,9 +9,7 @@ var pubnub = PUBNUB.init({      //pubnub(채팅 서버) 생성
   let currentCh = "chat-1"; //채널 default 값
   let channelNumber;//방이름 으로 채널을 구분함
   let ID;//접속한 사용자의 id
-  $(document).ready(function(){
-    setChannel();
-  });
+
  
   function setChannel(){
     channelNumber = document.getElementById("inputChannel").innerHTML;
@@ -29,7 +28,7 @@ var pubnub = PUBNUB.init({      //pubnub(채팅 서버) 생성
     });
   }
   
-//================ 채팅 내용 불러오기 ===================
+// 채팅 내용 불러오기 
   function displayPub(message){     //송신받은 메세지를 div로 만들어 append한다
     var html = "<div>"+message.username+": "+message.text+"</div>";
     $("#chatPub").append(html).scrollTop(999999);
@@ -53,7 +52,7 @@ var pubnub = PUBNUB.init({      //pubnub(채팅 서버) 생성
       sendPub();
     });
     $("#message").keyup(function(event){
-      if(event.keyCode == 13) sendPub();
+      if(event.keyCode == 13) sendPub();//enter키 눌렀을때 전송
     });
   });
   

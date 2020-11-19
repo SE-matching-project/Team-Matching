@@ -2,35 +2,54 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <link  href="ChatCss.css" rel="stylesheet"/>
+ 
 
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link  href="ChatCss.css" rel="stylesheet"/>
 
   <title>Team Matching Project</title>
 </head>
 <body>
-  <!-- json 을 읽어서 채팅방 만들어야함 -->
   <!-- 채팅방 목록이 서버에 저장되어야함 -->
-  <!-- 반복문으로? 채팅방을 만들어야함 -->
+  <!-- 반복문으로 채팅방을 만들어야함 -->
   
-<div id="chatting_list">
-  <table id="chat_table" >
+ 
     
-     <!-- <tr class=chat_room>
-      <td>
-        <a href="ChatRoom.php" title="없음" onmouseover="add(event)" onclick="uploadchat(event)"> gyfls2811</a>
-    </td>
-    </tr> -->
-  </table>
-</div>
-  <button id="create_chatroom">채팅방 만들기</button>
+        <div class="container">
+          <div class="row">
+            <div id="chatting_list" class="col-xs-12 col-md-12">
+              <table class="bordered" id="chat_table">
+                <thead>
+                  <tr>
+                    <th>채팅방 목록</th>
+                  </tr>
+                </thead>
+                <tbody id="t_body">
+               
+                </tbody>
+              </table>
+            </div>
+            <button id="create_chatroom">채팅방 만들기</button>
+            <div id="tooltip">
+              <p id="score"></p>
+              <p id="gender"></p>
+              <p id="id"></p>
+              <p id="time"></p>
+            </div>
+          </div>
+        </div>
+
+
+  
 <!-- 채팅방이 하나도 없을때 만드는 채팅방 버튼 -->
   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://cdn.pubnub.com/pubnub-3.4.4.js"></script>
+  <!-- chatting api -->
   <script src="Chatting.js"></script>
-  <pre id="json_output"></pre>
-  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <!-- <pre id="json_output"></pre> -->
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
  
 </body>
 </html>
