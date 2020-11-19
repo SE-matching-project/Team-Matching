@@ -49,6 +49,7 @@
               <p id="gender"></p>
               <p id="id"></p>
               <p id="time"></p>
+              <table id="timetable"></table>
             </div>
           </div>
         </div>

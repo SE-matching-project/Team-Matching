@@ -2,7 +2,7 @@
 document.getElementById("next1").addEventListener("click",change);
 document.getElementById("next2").addEventListener("click",change2);
 document.getElementById("next3").addEventListener("click",change3);
-document.getElementById("submit").addEventListener("click",info_class_save);
+document.getElementById("Submit2").addEventListener("click",info_class_save);
 
 function change(){
   $("#First").css("display","none");

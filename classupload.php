@@ -9,7 +9,7 @@ $fp = fopen($f_Name,"a+");
 fwrite($fp,$id."\n");
 fclose($fp);
 
-$fileName="data/Class/".$id."json";//파일path 생성 data/id_Class.json
+$fileName="data/Class/".$id.".json";//파일path 생성 data/id_Class.json
 $fp = fopen($fileName, "w+");
 
 fwrite($fp, $jsonData);//선택한 정보를 저장함

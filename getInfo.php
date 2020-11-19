@@ -26,7 +26,4 @@ for( $i=0; $u<count($infoArray[3]);$i++){
     echo $infoArray[3][$i]."?";
 }
 
-
-//$t = json_encode($infoArray);
-//echo $txt; 
 ?>
