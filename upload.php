@@ -9,7 +9,7 @@ $fp = fopen($f_Name,"a+");
 fwrite($fp,$id."\n");
 fclose($fp);
 
-$fileName="data/Graduation/".$id."json";
+$fileName="data/Graduation/".$id.".json";
 $fp = fopen($fileName, "w+");
 
 fwrite($fp, $jsonData);

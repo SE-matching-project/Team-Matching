@@ -1,38 +1,4 @@
-/* body {
-    background-color: #f7f8fc;
-    text-align: center;
-    vertical-align: center;
-} */
-/* table, th, td {
-    border: 1px solid #9c9999;
-    border-collapse: collapse;
-    
-  }
-  table {
-    margin: 0 auto;
-    width: 600px;
-    font-family: sans-serif;
-  }
-  th{
-    background-color: #5260AE;
-    font-size: 20pt;
-    color: white;
-    width: 300px;
-    height: 40px;
-  }
- td{
-    background-color: white;
-    font-size: 18pt;
-    width: 300px;
-    height: 20px;
-  }
 
-
-#chatting_list{
-    padding-top: 10%;
-    padding-bottom: 10%;
-    margin: 0 auto;
-} */
 .row{
     padding-top: 10%;
 }
@@ -68,11 +34,6 @@
  
 .bordered th {
     background-color: #5260AE;
-    /* background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
-    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
-    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
-    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
-    background-image:         linear-gradient(top, #ebf3fc, #dce9f9); */
     -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
     -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;
     box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;
@@ -147,4 +108,19 @@
 #create_chatroom:hover,
 #create_chatroom:focus {
     opacity: 0.75;
+}
+
+#timetable {
+    width: 30%;
+    height:50%;
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+th,tr, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+p{
+    font-size:20px;
 }

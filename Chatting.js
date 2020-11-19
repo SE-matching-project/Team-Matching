@@ -8,56 +8,92 @@ function add(event){
     var option=data.split(" ");
     p_arr=document.getElementsByTagName("p");
 
-    if(option[0]=="SE"){//사용자가 그방에 대한 선택한 정보를 보기 쉽게 나타내기 위한 if문들
-      event.target.title="소프트 웨어 공학";
-      p_arr[0].innerHTML="소프트 웨어 공학";
-    }
+    switch(option[0]){//사용자가 그방에 대한 선택한 정보를 보기 쉽게 나타내기 위한 if문들
+      case "SE":
+         p_arr[0].innerHTML="소프트 웨어 공학";
+         break;
+      case "CN": 
+      p_arr[0].innerHTML="컴퓨터네트워크";
+      break;
+      case "GS": 
+      p_arr[0].innerHTML="공개소프트웨어실습";
+      break;
+      
+      case "GZ": 
+      p_arr[0].innerHTML="객체지향설계";
+      break;
+   }
+   switch(option[1]){
+     case "man":
+     p_arr[1].innerHTML="남자";
+     break;
+    case "woman":
+     p_arr[1].innerHTML="여자";
+     break;
+     case "mid":
+     p_arr[1].innerHTML="상관없음";
+     break;
+   }
 
-    switch(option[0]){
-      // case "SE":break;
-      // case : break;
-      // case : break;
-      // case : break;
-      // case : break;
-      // case : break;
-      // case : break;
-    }
+   var text="";
+   var id_arr;
+   id_arr=option[2].split("|");
+   id_arr=id_arr.sort();
+   for(let id of id_arr){
+     if(id!=""){
+       text+=id+"학번 ";
+     }
+   }
+   p_arr[2].innerHTML=text;
 
-    var text="";
-    id_arr=option[2].split("|");
-    id_arr=id_arr.sort();
-    for(let id of id_arr){
-      if(id!=""){
-        text+=id+"학번 ";
-      }
-    }
-    p_arr[2].innerHTML=text;
+   var time_arr;
+   time_arr=option[3].split("?");
+   time_arr.pop();//마지막 공백 뺌
+   p_arr[3].innerHTML=time_arr;//잘받아 오는 지 테스트
+   createTable(time_arr);//table만들어냄
 
-
-    //추가적인 if문 필요
-    //event.target.title=data;
   });
   
 }
+
 function createTable(arr){
-  var firstRow="<tr>";
-  firstRow+="<td></td>";
-  firstRow+="<th>월</th>";
-  firstRow+="<th>화</th>";
-  firstRow+="<th>수</th>";
-  firstRow+="<th>목</th>";
-  firstRow+= "<th>금</th>";
-  firstRow+="<th>토</th>";
-  firstRow+="<th>일</th>"+"</tr>";
+  $("#timetable").empty();
+  var weekday=["M","T","W","TH","F","S","Sun"];
+  var table=$("#timetable");//document.createElement("table");
 
-  var table=document.createElement("table");
-  table.appendChild(firstRow);
+  var r=document.createElement("tr");
+  var d=document.createElement("td");
   
-  var tr=document.createElement("tr");
-  var th=document.createElement("th");
-  var td=document.createElement("td");
-
+  r.appendChild(d);
+  var day=["월","화","수","목","금","토","일"];
+  for(let i=0; i<7; i++){
+    var h=document.createElement("th");
+    h.innerText= day[i];
+    r.appendChild(h);
+  }//첫번째 row
+  
+  
+  table.append(r);
+  for(let row=0; row<14; row++){
+    var tr=document.createElement("tr");
+    var th=document.createElement("th");
+    th.innerHTML=9+row;//시간
+    tr.appendChild(th);
+    for(let col=0; col<7; col++){
+      var td=document.createElement("td");
+      td.id=weekday[col]+""+(row+9);
+      tr.appendChild(td);
+    }
+    table.append(tr);
+  }
+ 
+  for(let i=0; i<arr.length;i++){
+    var checktd=document.getElementById(arr[i]);
+    checktd.style.backgroundColor = "gray";
+  }
 }
+
+
 $("#create_chatroom").click(function(){//채팅방 만들기 버튼 클릭하면 채팅방 만드는 함수 실행
   createChatRoom();
 });
