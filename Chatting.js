@@ -7,9 +7,20 @@ function add(event){
   function(data, status){
     var option=data.split(" ");
     p_arr=document.getElementsByTagName("p");
+
     if(option[0]=="SE"){//사용자가 그방에 대한 선택한 정보를 보기 쉽게 나타내기 위한 if문들
       event.target.title="소프트 웨어 공학";
       p_arr[0].innerHTML="소프트 웨어 공학";
+    }
+
+    switch(option[0]){
+      // case "SE":break;
+      // case : break;
+      // case : break;
+      // case : break;
+      // case : break;
+      // case : break;
+      // case : break;
     }
 
     var text="";
@@ -21,6 +32,7 @@ function add(event){
       }
     }
     p_arr[2].innerHTML=text;
+
 
     //추가적인 if문 필요
     //event.target.title=data;

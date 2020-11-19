@@ -22,6 +22,9 @@ echo $infoArray[0]." ".$infoArray[1]." ";
 for ( $i=0;$i<count($infoArray[2]);$i++){
     echo $infoArray[2][$i]."|";
 }
+for( $i=0; $u<count($infoArray[3]);$i++){
+    echo $infoArray[3][$i]."?";
+}
 
 
 //$t = json_encode($infoArray);
