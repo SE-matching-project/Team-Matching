@@ -1,0 +1,17 @@
+.chat{
+    display:inline-block;
+}
+.text{
+    padding-inline-end: 20px;
+    color:white;
+    background-color:#708b9c;
+    border-radius: 10px;
+    padding:10px;
+}
+#chatPub{
+    margin:auto;
+    padding:20px;
+}
+.mine{
+    text-align: right;
+}

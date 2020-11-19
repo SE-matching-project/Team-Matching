@@ -69,7 +69,7 @@ $.ajax({
  
   success: function(id){
     ID=id;//로그인한 아이디를 변수ID로 받는다.
-    alert("id");
+    //alert("id");
   }
 });
 
@@ -80,6 +80,9 @@ function createChatRoom(){
     if(td_arr[i].innerHTML==ID){//같은거 발견하면
       return;//만들지 마라
     }
+  }
+  if(ID==""){
+    return;
   }
   var h= document.getElementById("chat_table");
   var tbody=document.getElementById("t_body");
@@ -99,7 +102,21 @@ function createChatRoom(){
   tr.appendChild(td);
   tbody.appendChild(tr);
   h.appendChild(tbody);//테이블에 추가 
-
+  var data;
+  data={
+    id:ID,
+  };
+  var myObj=JSON.stringify(data);
+  $.ajax({
+    type: "POST",
+    url: "saveChatRoom.php",
+    data: {
+      jsonData:myObj,
+    },
+    
+})
+  
+  
 }
 
 function uploadchat(event) {//입장한 방이름(생성한 사람의 id)을 getChatRoom.php로 전달하는 함수

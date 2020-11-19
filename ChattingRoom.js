@@ -30,7 +30,13 @@ var pubnub = PUBNUB.init({      //pubnub(채팅 서버) 생성
   
 // 채팅 내용 불러오기 
   function displayPub(message){     //송신받은 메세지를 div로 만들어 append한다
-    var html = "<div>"+message.username+": "+message.text+"</div>";
+   var html;
+    if(ID==message.username){
+      html = "<div class='mine'>"+message.username+"<br><div class='chat'><p class='text'>"+message.text+"</p></div></div>";
+    }
+    else{
+      html = "<div>"+message.username+"<br><div class='chat'><p class='text'>"+message.text+"</p></div></div>";
+    }
     $("#chatPub").append(html).scrollTop(999999);
   }
   

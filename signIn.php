@@ -16,7 +16,7 @@ function sign($jsonData){
         fclose($pfile1);
     }else{
         $pfile1 = fopen("./data/member.json", "a+");
-        fwrite($pfile1, $jsonData+"ww");
+        fwrite($pfile1, $jsonData."\n");
         fclose($pfile1);
     }
     

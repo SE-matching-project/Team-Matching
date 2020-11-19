@@ -5,6 +5,7 @@ session_start();
   <!-- 채팅방을 나타내는 페이지 -->
     <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ChatRoom.css" >
     </head>
     <body>
         <div id=chatting>
