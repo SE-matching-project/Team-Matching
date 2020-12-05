@@ -79,7 +79,7 @@ function match() {
         traditional: true,
         data: {
             chatRoom: roomids,
-            classOrGrad: "class",
+            classOrGrad: "Class",
         },
     });
 

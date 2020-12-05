@@ -80,7 +80,7 @@ function match() {
         traditional: true,
         data: {
             chatRoom: roomids,
-            classOrGrad: "grad",
+            classOrGrad: "Graduation",
         },
     });
 }

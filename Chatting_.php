@@ -2,21 +2,8 @@
 <html lang="en" dir="ltr">
 <?php
 session_start();
-if (session_status() == PHP_SESSION_NONE) {
-  $_SESSION['chatRoom'] = array();  
-  
-  array_push($_SESSION["chatRoom"],"hebin99");
-}
-$_SESSION['chatRoom'] = array();  
-  
-  array_push($_SESSION["chatRoom"],"hebin99");
-print_r($_SESSION["chatRoom"]);
-if(isset($_POST["chatRoom"])){
-  foreach ($_POST["chatRoom"] as $value) {
-    array_push($_SESSION["chatRoom"],$value);
- }
-  print_r($_SESSION["chatRoom"]);
-}
+
+
 ?>
 <head>
   <meta charset="utf-8">
@@ -33,6 +20,15 @@ if(isset($_POST["chatRoom"])){
   
  
     <?php 
+    $arr = array();
+    if(isset($_POST["chatRoom"])){
+      $_SESSION['chatRoom']=array();
+      $arr = explode( '|', $_POST["chatRoom"] );
+      foreach ($arr as $value) {
+        array_push($_SESSION["chatRoom"],$value);
+      }
+    }
+    
     if(isset($_POST["classOrGrad"])){
       $_SESSION['classOrGrad'] = $_POST['classOrGrad'];
     }
