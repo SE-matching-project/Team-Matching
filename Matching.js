@@ -1,30 +1,42 @@
 document.getElementById("Submit2").addEventListener("click", match);
 
 
-function replaceAll (str, org, dest) {
-    return str.split(org).join(dest); 
+function replaceAll(str, org, dest) {
+    return str.split(org).join(dest);
 }
 
 
 function match() {
-    /* TODO:
-        사용자 선택지 읽어오기
-        users json형식으로 저장
-    */
-    
-    // test용 선언
-//    let users = {
-//        "score": "GZ",
-//        "gender": "F",
-//        "id": [17, 18, 19],
-//        "time": ["M9", "W9", "T9"]
-//    };
-    
+
+    // get user checks
+    var score_ = $('input:radio[name="chk_score"]:checked').val();
+    var gender_ = $('input:radio[name="chk_gender"]:checked').val();
+    //강의,성별 정보 받음
+    var id_list = []
+    $('input[name="chk_ID"]:checked').each(function () {
+        var test = $(this).val(); //선택된 학번 하나씩
+        id_list.push(test);
+    });
+    var time_list = []
+    $('input[name="chk_time"]:checked').each(function () {
+        var temp = $(this).val(); //선택된 시간들 하나씩
+        time_list.push(temp);
+    });
+
+    // user info
+    let users = {
+        "score": score_,
+        "gender": gender_,
+        "id": id_list,
+        "time": time_list
+    };
+
+
     let reads = [];
     $.ajax({
         url: 'read.php',
         type: 'POST',
-        data: { },
+        data: {},
         dataType: "json", //받을 때만 적용
         async: false,
         success: function (response) {
@@ -51,27 +63,17 @@ function match() {
 
     // sorting for matching
     chatRooms, cRScore = sortList(chatRooms, cRScore); // 우선순위에 따라 정렬
-    
+
     $.ajax({
         url: 'Chatting_.php',
         type: 'POST',
-        traditional:true,
+        traditional: true,
         data: {
-            chatRoom:chatRooms,
+            chatRoom: chatRooms,
         },
 
     });
-
-    // list에 추가하는 코드
-//    if (chatRooms.length > 0) {
-//        for (var i = 0; i < chatRooms.length; i++) {
-//            var listadd = document.createElement("li");
-//            var cstr = i + "_" + ObjtoStr(chatRooms[i]);
-//            listadd.innerHTML = cstr;
-//            listadd.id = cstr; //id값 주기
-//            document.getElementById("myul").appendChild(listadd);
-//        }
-//    }
+    
 }
 
 function ObjtoStr(c) { // 각 list element 별 id 생성
@@ -150,6 +152,6 @@ function count(usersList, cN) {
             Count += 1
         }
     }
-    
+
     return Count;
 }
