@@ -1,10 +1,14 @@
 function add(event) {
   var id_ = event.target.innerText;//방이름 
+  var classOrGrad = document.getElementById("classOrGrad").innerText;
+
   $.post("getInfo.php",
     {
-      id: id_
+      id: id_,
+      cG: classOrGrad,
     },
     function (data, status) {
+      console.log(data);
       var option = data.split(" ");
       p_arr = document.getElementsByTagName("p");
 
@@ -85,6 +89,7 @@ function add(event) {
       createTable(time_arr);//table만들어냄
 
     });
+    document.getElementById("tooltip").style.display="block";
 
 }
 
@@ -125,6 +130,9 @@ function createTable(arr) {
   }
 }
 
+function close_(){
+  document.getElementById("tooltip").style.display="none";
+}
 
 $("#create_chatroom").click(function () {//채팅방 만들기 버튼 클릭하면 채팅방 만드는 함수 실행
   createChatRoom();
@@ -161,6 +169,9 @@ function createChatRoom() {
   a.href = "./ChatRoom.php";
   a.addEventListener("mouseover", function (e) {
     add(e);//선택한 정보 마우스 갔다되면 보이도록 함
+  });
+  a.addEventListener("mouseout", function (e) {
+    close_();//선택한 정보 마우스 갔다되면 보이도록 함
   });
   a.addEventListener("click", function (e) {
     uploadchat(e);//채팅방 입장 했을때 입장한 방이름 나타냄
