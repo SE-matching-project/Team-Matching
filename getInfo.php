@@ -1,10 +1,11 @@
 <?php
 $id = $_POST["id"];
+$CG = $_POST["cG"];
 
 $fName = "data/Class/" . $id . ".json"; //class 인지 graduation인지 나눠야함
 $fName2 = "data/Graduation/" . $id . "json";
 
-if (file_exists($fName)) {
+if ($CG=="class") {
     $fp = fopen($fName, 'r');
     $txt = fgets($fp);
     fclose($fp);
@@ -21,7 +22,7 @@ if (file_exists($fName)) {
     for ($i = 0; $u < count($infoArray[3]); $i++) {
         echo $infoArray[3][$i] . "?";
     }
-} else if (file_exists($fName2)) {
+} else if ($CG=="grad") {
     $fp = fopen($fName2, 'r');
     $txt = fgets($fp);
     fclose($fp);

@@ -73,6 +73,7 @@ function match() {
         traditional: true,
         data: {
             chatRoom: chatRooms,
+            classOrGrad : "glad",
         },
 
     });

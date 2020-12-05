@@ -1,5 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<?php
+session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  $_SESSION['chatRoom'] = array();  
+  
+  array_push($_SESSION["chatRoom"],"hebin99");
+}
+$_SESSION['chatRoom'] = array();  
+  
+  array_push($_SESSION["chatRoom"],"hebin99");
+print_r($_SESSION["chatRoom"]);
+if(isset($_POST["chatRoom"])){
+  foreach ($_POST["chatRoom"] as $value) {
+    array_push($_SESSION["chatRoom"],$value);
+ }
+  print_r($_SESSION["chatRoom"]);
+}
+?>
 <head>
   <meta charset="utf-8">
  
@@ -14,7 +32,11 @@
   <!-- 반복문으로 채팅방을 만들어야함 -->
   
  
-    
+    <?php 
+    if(isset($_POST["classOrGrad"])){
+      $_SESSION['classOrGrad'] = $_POST['classOrGrad'];
+    }
+    echo "<p id='classOrGrad'>".$_SESSION["classOrGrad"]."</p>"?>
         <div class="container">
           <div class="row">
             <div id="chatting_list" class="col-xs-12 col-md-12">
@@ -27,16 +49,22 @@
                 <tbody id="t_body">
                <?php
                
-                if(file_exists("./data/chatRoom.json")==1){
-                    $infoArray;
-                    $pfile2 = fopen("./data/chatRoom.json", "r");
-                    while(!feof($pfile2)) {
-                        $str = fgets($pfile2);
-                        $str1 = json_decode($str, true);
-                        echo '<tr><td><a href="./ChatRoom.php" onclick="uploadchat(event)">'.$str1["id"].'</a></td></tr>';
-                    }
-                    fclose($pfile2);
+                // if(file_exists("./data/chatRoom.json")==1){
+                //     $infoArray;
+                //     $pfile2 = fopen("./data/chatRoom.json", "r");
+                //     while(!feof($pfile2)) {
+                //         $str = fgets($pfile2);
+                //         $str1 = json_decode($str, true);
+                //         echo '<tr><td><a href="./ChatRoom.php" onclick="add(event)">'.$str1["id"].'</a></td></tr>';
+                //     }
+                //     fclose($pfile2);
                     
+                // }
+                
+                if(!empty($_SESSION["chatRoom"])){
+                  foreach ($_SESSION["chatRoom"] as $value) {
+                    echo '<tr><td><a href="./ChatRoom.php" onclick="uploadchat(event)" onmouseover="add(event)" onmouseout="close_()">'.$value.'</a></td></tr>';
+                 }
                 }
                 
                ?>
@@ -53,6 +81,7 @@
             </div>
           </div>
         </div>
+        
 
 
   

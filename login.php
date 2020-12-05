@@ -2,8 +2,18 @@
 // Start the session
 session_start();
 
-$idVal = test_input($_POST["idValue"]);
-$pwVal = test_input($_POST["pwValue"]);
+if(isset($_POST["idValue"])){
+    $idVal = test_input($_POST["idValue"]);
+}
+
+if(isset($_POST["pwValue"])){
+    $pwVal = test_input($_POST["pwValue"]);
+}
+
+if(isset($_POST["logout"])){
+    $pwVal = $_POST["logout"];
+    logout();
+}
 
 function test_input($data) {
   $data = trim($data);
@@ -12,9 +22,17 @@ function test_input($data) {
   return $data;
 }
 
-login($idVal,$pwVal);
+if(isset($_POST["idValue"])){
+    login($idVal,$pwVal);
+}
+
+
+function logout(){
+    session_destroy();
+}
 
 function login($idVal,$pwVal){
+    //session_start();
     $exist = false;
     if(file_exists("./data/member.json")==1){
         $infoArray;
@@ -35,7 +53,7 @@ function login($idVal,$pwVal){
         }
     }
     if($exist==true){
-        echo "Login";
+        echo $_SESSION['id'];
     }else{
         echo "Fail";
     }
