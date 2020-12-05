@@ -14,60 +14,60 @@ function add(event) {
 
       switch (option[0]) {//사용자가 그방에 대한 선택한 정보를 보기 쉽게 나타내기 위한 if문들
         case "SE":
-          p_arr[0].innerHTML = "소프트 웨어 공학";
+          p_arr[1].innerHTML = "소프트 웨어 공학";
           break;
         case "CN":
-          p_arr[0].innerHTML = "컴퓨터네트워크";
+          p_arr[1].innerHTML = "컴퓨터네트워크";
           break;
         case "GS":
-          p_arr[0].innerHTML = "공개소프트웨어실습";
+          p_arr[1].innerHTML = "공개소프트웨어실습";
           break;
 
         case "GZ":
-          p_arr[0].innerHTML = "객체지향설계";
+          p_arr[1].innerHTML = "객체지향설계";
           break;
 
         case "App":
-          p_arr[0].innerHTML = "어플리케이션";
+          p_arr[1].innerHTML = "어플리케이션";
           break;
 
         case "Embedded":
-          p_arr[0].innerHTML = "임베디드";
+          p_arr[1].innerHTML = "임베디드";
           break;
         case "IoT":
-          p_arr[0].innerHTML = "사물인터넷";
+          p_arr[1].innerHTML = "사물인터넷";
           break;
         case "Web":
-          p_arr[0].innerHTML="웹";
+          p_arr[1].innerHTML="웹";
           break;
         case "Network":
-          p_arr[0].innerHTML="네트워크";
+          p_arr[1].innerHTML="네트워크";
           break;
         case "Security":
-          p_arr[0].innerHTML="보안";
+          p_arr[1].innerHTML="보안";
           break;
         case "AI":
-          p_arr[0].innerHTML="인공지능";
+          p_arr[1].innerHTML="인공지능";
           break;
         case "Machine":
-          p_arr[0].innerHTML="기계학습";
+          p_arr[1].innerHTML="기계학습";
           break;
         case "ComputerV":
-          p_arr[0].innerHTML="컴퓨터비젼";
+          p_arr[1].innerHTML="컴퓨터비젼";
           break;
         case "iOS":
-          p_arr[0].innerHTML="iOS";
+          p_arr[1].innerHTML="iOS";
           break;
       }
       switch (option[1]) {
         case "man":
-          p_arr[1].innerHTML = "남자";
+          p_arr[2].innerHTML = "남자";
           break;
         case "woman":
-          p_arr[1].innerHTML = "여자";
+          p_arr[2].innerHTML = "여자";
           break;
         case "mid":
-          p_arr[1].innerHTML = "상관없음";
+          p_arr[2].innerHTML = "상관없음";
           break;
       }
 
@@ -151,6 +151,8 @@ $.ajax({
 
 
 function createChatRoom() {
+  var classOrGrad = document.getElementById("classOrGrad").innerText;
+
   var td_arr = document.getElementsByTagName("a");
   for (let i = 0; i < td_arr.length; i++) {//채팅방 만들때 같은 사람이 여러개 방을 만들 수 없도록 같은 id이름인 채팅방은 못만든다.
     if (td_arr[i].innerHTML == ID) {//같은거 발견하면
@@ -190,7 +192,8 @@ function createChatRoom() {
     type: "POST",
     url: "saveChatRoom.php",
     data: {
-      jsonData: myObj,
+      jsonData: ID,
+      class:classOrGrad,
     },
 
   })
@@ -200,9 +203,10 @@ function createChatRoom() {
 
 function uploadchat(event) {//입장한 방이름(생성한 사람의 id)을 getChatRoom.php로 전달하는 함수
   var id_ = event.target.innerText;
+  var classOrGrad = document.getElementById("classOrGrad").innerText;
   $.post("getChatRoom.php",
     {
-      chatId: id_
+      chatId: id_+"/"+classOrGrad,
     });
 
 }

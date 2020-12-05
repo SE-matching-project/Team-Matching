@@ -1,7 +1,7 @@
 <?php
 $jsdata = $_POST["jsonData"];
 
-$pfile1 = fopen("./data/chatRoom.json", "a+");
+$pfile1 = fopen("./data/".$_POST['class']."/chatRoom.json", "a+");
 fwrite($pfile1, $jsdata);
 fwrite($pfile1,"\n");
 fclose($pfile1);
