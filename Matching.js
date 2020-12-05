@@ -2,7 +2,7 @@ document.getElementById("test").addEventListener("click", match);
 
 
 function replaceAll (str, org, dest) {
-    return str.split(org).join(dest); 
+    return str.split(org).join(dest);
 }
 
 
@@ -50,8 +50,16 @@ function match() {
 
     // matching 수행
     chatRooms, cRScore = sortList(chatRooms, cRScore); // 우선순위에 따라 정렬
-    
-    
+
+    $.ajax({
+        url: 'Chatting_.php',
+        type: 'POST',
+        traditional:true,
+        data: {
+            chatRoom:chatRooms,
+        },
+
+    });
 
 
     // list에 추가하는 코드
@@ -107,10 +115,11 @@ function sortList(chatRooms, cRScore) { // 버블 소트 사용해봄
         }
     }
 
+
     return chatRooms, cRScore;
 }
 
-function carScore(users, chatRooms) { // calculate priority score
+function carScore(users, chatRooms) {
     let priority = []
     for (var i = 0; i < chatRooms.length; i++) {
         var prior = 0
@@ -121,8 +130,13 @@ function carScore(users, chatRooms) { // calculate priority score
 
         if (c2 == users['gender']) prior += 1;
 
-        let noCount = count(users['id'], c3);
-
+        let noCount = count(users['id'], c3); //0;
+//        for (var j = 0; j < c3.length; j++) {
+//            if (users['id'].includes(c3[j])) {
+//                noCount += 1
+//            }
+//
+//        }
 
         let timeCount = count(users['time'], c4); //0;
 //        for (var k = 0; k < c4.length; k++) {
@@ -147,7 +161,8 @@ function count(usersList, cN) {
         if (usersList.includes(cN[j])) {
             Count += 1
         }
+
     }
-    
+
     return Count;
 }
