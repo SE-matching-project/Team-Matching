@@ -4,10 +4,16 @@ body {
     vertical-align: center;
 }
 
+#logo{
+    width: 7em;
+    margin-left: 0.05em;
+    margin-right: 0.1em;
+}
+
 #loginPage,
 #Sign,
 #Choice {
-    padding-top: 30%;
+    padding-top: 15em;
     font-weight: bold;
     letter-spacing: 2px;
 }
