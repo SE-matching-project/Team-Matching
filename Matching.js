@@ -31,12 +31,14 @@ function match() {
         "time": time_list
     };
 
-
+    let option_ = "C";
     let reads = [];
     $.ajax({
         url: 'read.php',
         type: 'POST',
-        data: {},
+        data: {
+            option: option_,
+        },
         dataType: "json", //받을 때만 적용
         async: false,
         success: function (response) {
