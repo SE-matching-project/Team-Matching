@@ -69,6 +69,8 @@ function match() {
     // sorting for matching
     chatRooms, Roomids, cRScore = sortList(chatRooms, Roomids, cRScore); // 우선순위에 따라 정렬
 
+    info_class_save();
+    
     let roomids = Roomids.join("|");
 
     $.ajax({

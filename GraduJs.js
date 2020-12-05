@@ -2,8 +2,7 @@ document.getElementById("next5").addEventListener("click",change);
 document.getElementById("next6").addEventListener("click",change2);
 document.getElementById("next7").addEventListener("click",change3);
 // 다음 버튼이 클릭 되었을 때
-document.getElementById("Submit2").addEventListener("click",info_save);
-// 마지막에 제출 버튼이 클릭 되었을때
+
 function change(){
   $("#Five").css("display","none");
   $("#Six").css("display","block");

@@ -38,7 +38,7 @@ function match() {
         url: 'read.php',
         type: 'POST',
         data: {
-            option:option_,
+            option: option_,
         },
         dataType: "json", //받을 때만 적용
         async: false,
@@ -69,6 +69,8 @@ function match() {
 
     // sorting for matching
     chatRooms, Roomids, cRScore = sortList(chatRooms, Roomids, cRScore); // 우선순위에 따라 정렬
+
+    info_save();
 
     let roomids = Roomids.join("|");
 
@@ -118,7 +120,7 @@ function sortList(chatRooms, Roomids, cRScore) { // 버블 소트 사용해봄
                         var temp = cRScore[j];
                         cRScore[j] = cRScore[j + 1];
                         cRScore[j + 1] = temp;
-                        
+
                         temp = chatRooms[j];
                         chatRooms[j] = chatRooms[j + 1];
                         chatRooms[j + 1] = temp;
