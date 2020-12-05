@@ -79,12 +79,6 @@ function match() {
 
 }
 
-function ObjtoStr(c) { // 각 list element 별 id 생성
-    var string = "";
-    string = c['interest'] + c['gender'];
-    return string;
-}
-
 function sortList(chatRooms, cRScore) { // 버블 소트 사용해봄
     var n = chatRooms.length;
 
