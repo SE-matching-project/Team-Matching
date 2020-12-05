@@ -3,10 +3,10 @@ $option = test_input($_POST['option']);
 $fileName = "";
 
 if($option === "C"){
-    $fileName = "./data/Class/ClassID.json";
+    $fileName = "./data/Class/chatRoom.json";
 }
 else{
-    $fileName = "./data/Graduation/GraduID.json";
+    $fileName = "./data/Graduation/chatRoom.json";
 }
 
 $file = array();
@@ -46,7 +46,7 @@ function getDetail($id, $opt){
         fclose($fp);
     }
     
-    return $txt;
+    return $id."|".$txt;
 }
 
 

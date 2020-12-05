@@ -50,12 +50,15 @@ function match() {
     });
 
     let chatRooms = new Array();
+    let Roomids = new Array();
     for (var i = 0; i < reads.length; i++) {
         let str = reads[i];
-        str = replaceAll(str, "&quot;", '"');
+        let chat = str.split("|");
+        str = replaceAll(chat[1], "&quot;", '"');
         var c = JSON.parse(str);
         if (c['score'] == users['score']) {
             chatRooms.push(c);
+            Roomids.push(chat[0]);
         }
     }
 
@@ -64,22 +67,23 @@ function match() {
 
 
     // sorting for matching
-    chatRooms, cRScore = sortList(chatRooms, cRScore); // 우선순위에 따라 정렬
+    chatRooms, Roomids, cRScore = sortList(chatRooms, Roomids, cRScore); // 우선순위에 따라 정렬
+
+    let roomids = Roomids.join("|");
 
     $.ajax({
         url: 'Chatting_.php',
         type: 'POST',
         traditional: true,
         data: {
-            chatRoom: chatRooms,
-            classOrGrad : "class",
+            chatRoom: roomids,
+            classOrGrad: "class",
         },
-
     });
-    
+
 }
 
-function sortList(chatRooms, cRScore) { // 버블 소트 사용해봄
+function sortList(chatRooms, Roomids, cRScore) { // 버블 소트 사용해봄
     var n = chatRooms.length;
 
     for (var i = n - 1; i > 0; i--) { // 0 ~ (i-1)
@@ -88,25 +92,40 @@ function sortList(chatRooms, cRScore) { // 버블 소트 사용해봄
                 var temp = cRScore[j];
                 cRScore[j] = cRScore[j + 1];
                 cRScore[j + 1] = temp;
-                var tmp = chatRooms[j];
+
+                temp = chatRooms[j];
                 chatRooms[j] = chatRooms[j + 1];
-                chatRooms[j + 1] = tmp;
+                chatRooms[j + 1] = temp;
+
+                temp = Roomids[j];
+                Roomids[j] = Roomids[j + 1];
+                Roomids[j + 1] = temp;
             } else if (cRScore[j]['prior'] == cRScore[j + 1]['prior']) { // prior점수 같은 경우
                 if (cRScore[j]['noCount'] < cRScore[j + 1]['noCount']) { // 학번 점수 정렬
                     var temp = cRScore[j];
                     cRScore[j] = cRScore[j + 1];
                     cRScore[j + 1] = temp;
-                    var tmp = chatRooms[j];
+
+                    temp = chatRooms[j];
                     chatRooms[j] = chatRooms[j + 1];
-                    chatRooms[j + 1] = tmp;
+                    chatRooms[j + 1] = temp;
+
+                    temp = Roomids[j];
+                    Roomids[j] = Roomids[j + 1];
+                    Roomids[j + 1] = temp;
                 } else if (cRScore[j]['noCount'] == cRScore[j + 1]['noCount']) { // 학번 점수 같은 경우
                     if (cRScore[j]['timeCount'] < cRScore[j + 1]['timeCount']) { // 시간표 점수 정렬
                         var temp = cRScore[j];
                         cRScore[j] = cRScore[j + 1];
                         cRScore[j + 1] = temp;
-                        var tmp = chatRooms[j];
+                        
+                        temp = chatRooms[j];
                         chatRooms[j] = chatRooms[j + 1];
-                        chatRooms[j + 1] = tmp;
+                        chatRooms[j + 1] = temp;
+
+                        temp = Roomids[j];
+                        Roomids[j] = Roomids[j + 1];
+                        Roomids[j + 1] = temp;
                     }
                 }
             }
@@ -114,7 +133,7 @@ function sortList(chatRooms, cRScore) { // 버블 소트 사용해봄
         }
     }
 
-    return chatRooms, cRScore;
+    return chatRooms, Roomids, cRScore;
 }
 
 function carScore(users, chatRooms) { // calculate priority score
