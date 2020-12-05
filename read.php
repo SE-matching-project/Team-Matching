@@ -1,5 +1,13 @@
 <?php
-$fileName = "./data/Class/ClassID.json";
+$option = test_input($_POST['option']);
+$fileName = "";
+
+if($option === "C"){
+    $fileName = "./data/Class/ClassID.json";
+}
+else{
+    $fileName = "./data/Graduation/GraduID.json";
+}
 
 $file = array();
 
@@ -8,7 +16,7 @@ if(file_exists($fileName)){
     $arry = array(); // class id가 저장되는 곳
     for($i=0; $i<count($classID); $i++){
         $classID[$i] = test_input($classID[$i]);
-        $tmp = getDetail($classID[$i]);
+        $tmp = getDetail($classID[$i], $option);
         array_push($arry, $tmp);
     }
     array_push($file, $arry);
@@ -23,8 +31,13 @@ echo $output;
 
 
 
-function getDetail($cid){
-    $fName = "data/Class/".$cid.".json";//class
+function getDetail($id, $opt){
+    if($opt === "C"){
+        $fName = "data/Class/".$id.".json";//class
+    }
+    else {
+        $fName = "data/Graduation/".$id.".json";//graduation
+    }
     
     if(file_exists($fName)){
         $fp = fopen($fName,'r');
