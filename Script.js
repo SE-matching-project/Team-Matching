@@ -60,10 +60,7 @@ function checkform(id_, pw_, name_, mail_){
       alert("이메일 형식에 맞춰 입력해주세요");
       return false;
   }
-  if (name_ == "") {
-      alert("이름을 입력해 주세요")
-      return false;
-  }
+
   return true;
 
 }
