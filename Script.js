@@ -34,7 +34,7 @@ function login() {
             }
         }
     })
-    
+
 }
 
 
@@ -42,6 +42,30 @@ function login() {
 function join() {
     $("#loginPage").css("display", "none");
     $("#Sign").css("display", "block");
+}
+
+function checkform(id_, pw_, name_, mail_){
+
+  var pass_val = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*/;
+  var email_val = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  if (pw_ == "" || mail_ == "" || name_ == "") {
+      alert("양식을 모두 입력해주세요");
+      return false;
+  }
+  if (!pass_val.test(pw_)) {
+      alert("패스워드는 8~15자의 영문 대소문자와 숫자, 특수문자의 조합으로 입력해주세요");
+      return false;
+  }
+  if (!email_val.test(mail_)) {
+      alert("이메일 형식에 맞춰 입력해주세요");
+      return false;
+  }
+  if (name_ == "") {
+      alert("이름을 입력해 주세요")
+      return false;
+  }
+  return true;
+
 }
 
 function join_save() {
@@ -55,26 +79,10 @@ function join_save() {
     var name_ = document.getElementById("name").value;
     var mail_ = document.getElementById("mail").value;
 
-
-    var pass_val = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*/;
-    var email_val = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-    if (pw_ == "" || mail_ == "" || name_ == "") {
-        alert("양식을 모두 입력해주세요");
-        return false;
+    var temp=checkform(id_, pw_, name_, mail_)
+    if(temp==false){
+      return false;
     }
-    if (!pass_val.test(pw_)) {
-        alert("패스워드는 8~15자의 영문 대소문자와 숫자, 특수문자의 조합으로 입력해주세요");
-        return false;
-    }
-    if (!email_val.test(mail_)) {
-        alert("이메일 형식에 맞춰 입력해주세요");
-        return false;
-    }
-    if (name_ == "") {
-        alert("이름을 입력해 주세요")
-        return false;
-    }
-
 
     // Storing data:
     data = {
@@ -131,11 +139,11 @@ function logout(){
         data: {
             logout: "logout",
         },
-        
+
     })
     init();
     location.reload();
-    
+
 }
 
 function init(){
