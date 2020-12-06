@@ -70,7 +70,7 @@ function match() {
     chatRooms, Roomids, cRScore = sortList(chatRooms, Roomids, cRScore); // 우선순위에 따라 정렬
 
     info_class_save();
-    
+
     let roomids = Roomids.join("|");
 
     $.ajax({
@@ -85,49 +85,37 @@ function match() {
 
 }
 
+function swap(array,j){
+  var temp = array[j];
+  array[j] = array[j + 1];
+  array[j + 1] = temp;
+
+  return array;
+}
+
 function sortList(chatRooms, Roomids, cRScore) { // 버블 소트 사용해봄
     var n = chatRooms.length;
 
     for (var i = n - 1; i > 0; i--) { // 0 ~ (i-1)
         for (var j = 0; j < i; j++) { // 크기 순이 아니면 교환
             if (cRScore[j]['prior'] < cRScore[j + 1]['prior']) { // piror점수에 따라 정렬
-                var temp = cRScore[j];
-                cRScore[j] = cRScore[j + 1];
-                cRScore[j + 1] = temp;
 
-                temp = chatRooms[j];
-                chatRooms[j] = chatRooms[j + 1];
-                chatRooms[j + 1] = temp;
+                cRScore=swap(cRScore,j);
+                chatRooms=swap(chatRooms,j);
+                Roomids=swap(Roomids,j);
 
-                temp = Roomids[j];
-                Roomids[j] = Roomids[j + 1];
-                Roomids[j + 1] = temp;
+
             } else if (cRScore[j]['prior'] == cRScore[j + 1]['prior']) { // prior점수 같은 경우
                 if (cRScore[j]['noCount'] < cRScore[j + 1]['noCount']) { // 학번 점수 정렬
-                    var temp = cRScore[j];
-                    cRScore[j] = cRScore[j + 1];
-                    cRScore[j + 1] = temp;
+                  cRScore=swap(cRScore,j);
+                  chatRooms=swap(chatRooms,j);
+                  Roomids=swap(Roomids,j);
 
-                    temp = chatRooms[j];
-                    chatRooms[j] = chatRooms[j + 1];
-                    chatRooms[j + 1] = temp;
-
-                    temp = Roomids[j];
-                    Roomids[j] = Roomids[j + 1];
-                    Roomids[j + 1] = temp;
                 } else if (cRScore[j]['noCount'] == cRScore[j + 1]['noCount']) { // 학번 점수 같은 경우
                     if (cRScore[j]['timeCount'] < cRScore[j + 1]['timeCount']) { // 시간표 점수 정렬
-                        var temp = cRScore[j];
-                        cRScore[j] = cRScore[j + 1];
-                        cRScore[j + 1] = temp;
-                        
-                        temp = chatRooms[j];
-                        chatRooms[j] = chatRooms[j + 1];
-                        chatRooms[j + 1] = temp;
-
-                        temp = Roomids[j];
-                        Roomids[j] = Roomids[j + 1];
-                        Roomids[j + 1] = temp;
+                      cRScore=swap(cRScore,j);
+                      chatRooms=swap(chatRooms,j);
+                      Roomids=swap(Roomids,j);
                     }
                 }
             }
