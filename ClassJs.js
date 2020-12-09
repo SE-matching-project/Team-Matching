@@ -17,8 +17,17 @@ function change3(){
 }
 // 다음 버튼 눌렀을때 화면 전환 되도록 하는 함수들
 
+function check_infovalue(score, gender, id_list, time_list){
+  if(score==undefined || gender==undefined || id_list.length==0 || time_list.length==0){
+    alert("체크를 다 해주세요!");
+    return false;
+  }
+}
+
+
 // var myJSON = '{"chk_score":"", "chk_gender":, "chk_ID":[],"chk_time":[]}';
 function info_class_save() {//정보저장하는 함수
+
   var score_ = $('input:radio[name="chk_score"]:checked').val();
   var gender_=$('input:radio[name="chk_gender"]:checked').val();
   //강의,성별 정보 받음
@@ -32,6 +41,11 @@ function info_class_save() {//정보저장하는 함수
     var temp=$(this).val();//선택된 시간들 하나씩
     time_list.push(temp);
   });
+
+  var bool=check_infovalue(score_, gender_, id_list, time_list);
+  if(bool==false){
+    return false;
+  }
 //학번들 과 시간대 정보 받음
   Obj = {
       score: score_,
@@ -63,8 +77,3 @@ function info_class_save() {//정보저장하는 함수
       }
   });
 }
-
-
-
-
-
