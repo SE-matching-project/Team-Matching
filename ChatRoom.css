@@ -82,3 +82,7 @@ a:hover {
     outline: 0;
     padding: 22px 18px;
 }
+#send_area{
+ margin: auto;
+ width: 50%;
+}
