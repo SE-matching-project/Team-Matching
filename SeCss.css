@@ -4,6 +4,12 @@ body {
     vertical-align: center;
 }
 
+#id_{
+    margin-top: 0.8em;
+    margin-bottom: 0.2em;
+    font-weight: bold;
+}
+
 #logo{
     width: 7em;
     margin-left: 0.05em;
