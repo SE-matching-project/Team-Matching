@@ -13,6 +13,8 @@ session_start();
 
 if(isset($_SESSION["Chat"])){//채팅방이름이 있을때 나타내줌
     echo '<p id="inputChannel">'.$_SESSION["Chat"].'</p>';//$_SESSION["Chat"]
+}else{
+    echo "session fail";
 }
 //echo '<p  id="inputChannel">'.$_SESSION["Chat"].$_SESSION["id"].'</p>';
 
@@ -20,10 +22,18 @@ if(isset($_SESSION["Chat"])){//채팅방이름이 있을때 나타내줌
             
             <div id="chatPub" style="overflow: auto;"></div>
             <!-- 전송한 메시지가 나타나는 부분 -->
-            <input type="text" id="message">
-            <!-- 보낼 메세지 입력창 -->
-            <input type="submit" id="send" value="send">
-            <!-- send 버튼 -->
+            
+            <div class="container">
+	<div class="container__item">
+		<div id="send_area">
+            <input type="text"id="message" class="form__field" placeholder="Typing Your Message" />
+			<input type="submit" id="send"class="btn btn--primary btn--inside uppercase" value="send">
+        </div>
+			
+		
+	</div>
+	
+</div>
         </div>
 
       
