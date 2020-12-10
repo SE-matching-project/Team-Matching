@@ -69,28 +69,30 @@ function match() {
     // sorting for matching
     chatRooms, Roomids, cRScore = sortList(chatRooms, Roomids, cRScore); // 우선순위에 따라 정렬
 
-    info_class_save();
+    let saveInfo = info_class_save();
 
-    let roomids = Roomids.join("|");
+    if (saveInfo) {
+        let roomids = Roomids.join("|");
 
-    $.ajax({
-        url: 'Chatting_.php',
-        type: 'POST',
-        traditional: true,
-        data: {
-            chatRoom: roomids,
-            classOrGrad: "Class",
-        },
-    });
+        $.ajax({
+            url: 'Chatting_.php',
+            type: 'POST',
+            traditional: true,
+            data: {
+                chatRoom: roomids,
+                classOrGrad: "class",
+            },
+        });
+    }
 
 }
 
-function swap(array,j){
-  var temp = array[j];
-  array[j] = array[j + 1];
-  array[j + 1] = temp;
+function swap(array, j) {
+    var temp = array[j];
+    array[j] = array[j + 1];
+    array[j + 1] = temp;
 
-  return array;
+    return array;
 }
 
 function sortList(chatRooms, Roomids, cRScore) { // 버블 소트 사용해봄
@@ -100,22 +102,22 @@ function sortList(chatRooms, Roomids, cRScore) { // 버블 소트 사용해봄
         for (var j = 0; j < i; j++) { // 크기 순이 아니면 교환
             if (cRScore[j]['prior'] < cRScore[j + 1]['prior']) { // piror점수에 따라 정렬
 
-                cRScore=swap(cRScore,j);
-                chatRooms=swap(chatRooms,j);
-                Roomids=swap(Roomids,j);
+                cRScore = swap(cRScore, j);
+                chatRooms = swap(chatRooms, j);
+                Roomids = swap(Roomids, j);
 
 
             } else if (cRScore[j]['prior'] == cRScore[j + 1]['prior']) { // prior점수 같은 경우
                 if (cRScore[j]['noCount'] < cRScore[j + 1]['noCount']) { // 학번 점수 정렬
-                  cRScore=swap(cRScore,j);
-                  chatRooms=swap(chatRooms,j);
-                  Roomids=swap(Roomids,j);
+                    cRScore = swap(cRScore, j);
+                    chatRooms = swap(chatRooms, j);
+                    Roomids = swap(Roomids, j);
 
                 } else if (cRScore[j]['noCount'] == cRScore[j + 1]['noCount']) { // 학번 점수 같은 경우
                     if (cRScore[j]['timeCount'] < cRScore[j + 1]['timeCount']) { // 시간표 점수 정렬
-                      cRScore=swap(cRScore,j);
-                      chatRooms=swap(chatRooms,j);
-                      Roomids=swap(Roomids,j);
+                        cRScore = swap(cRScore, j);
+                        chatRooms = swap(chatRooms, j);
+                        Roomids = swap(Roomids, j);
                     }
                 }
             }
