@@ -25,7 +25,9 @@ function login() {
         success: function (result) {
             //alert(result);
             if (result==id_) {
-                alert("로그인 되셨습니다.");
+                alert("로그인 되었습니다.");
+                $("#id_").html(id_);
+                $("#logout").css("display", "inline");
                 $("#loginPage").css("display", "none");
                 $("#Choice").css("display", "block");
                 $("body").css("background-color", "#f3f3f6");
@@ -98,6 +100,7 @@ function join_save() {
         },
         success: function (result) {
             alert("회원가입이 완료되었습니다.");
+            location.reload();
         }
     })
 }
@@ -120,10 +123,10 @@ function id_Check() {
             idValue: id_,
         },
         success: function (result) {
-            if (result == id_) {
+            if (result == "yesId") {
                 alert("아이디가 중복됩니다.");
             } else {
-                alert("사용하셔도 되는 아이디 입니다.");
+                alert("사용 가능한 아이디입니다.");
                 checkTF = true;
             }
         }
@@ -146,6 +149,7 @@ function logout(){
 function init(){
     var id=document.getElementById("id_").innerText;
     if(id!=""){
+        $("#logout").css("display", "inline");
         $("#loginPage").css("display", "none");
         $("#Choice").css("display", "block");
         $("body").css("background-color", "#f3f3f6");
