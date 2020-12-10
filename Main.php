@@ -18,8 +18,8 @@ session_start();
 </head>
 
 <body>
+
 <?php
-print_r($_SESSION);
 if(isset($_SESSION["id"])){
     echo '<p id="id_">'.$_SESSION['id'].'</p><button id="logout">logout</button>';
 }else{
@@ -31,6 +31,7 @@ if(isset($_SESSION["id"])){
     <div class="container">
         <div class="row">
             <div id="loginPage" class="col-xs-12 col-md-12">
+                <p><img id="logo" src="data/images/logo.png" alt="TTMS LOGO"></p>
                 <table id="logintable">
                     <tr>
                         <td>ID &nbsp;&nbsp; </td>
@@ -79,8 +80,8 @@ if(isset($_SESSION["id"])){
                 <div id="Choice" class="col-xs-12 col-md-12">
                     <table id="choicetable">
                         <tr>
-                            <td><a href="Class.html"><button class="btn" value="CLASS" id="class"><img src="./data/down.png"><br>CLASS</button></a></td>
-                            <td><a href="Gradu.html"><button class="btn" value="GRADUATION" id="gradu"><img src="./data/up.png"><br>GRADUATION</button></a>
+                            <td><a href="Class.html"><button class="btn" value="CLASS" id="class"><img src="./data/images/down.png"><br>CLASS</button></a></td>
+                            <td><a href="Gradu.html"><button class="btn" value="GRADUATION" id="gradu"><img src="./data/images/up.png"><br>GRADUATION</button></a>
                             </td>
                         </tr>
                     </table><br>
