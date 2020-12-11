@@ -105,6 +105,7 @@ function createTable(arr) {
   var day = ["월", "화", "수", "목", "금", "토", "일"];
   for (let i = 0; i < 7; i++) {
     var h = document.createElement("th");
+    h.classList.add("Day");
     h.innerText = day[i];
     r.appendChild(h);
   }//첫번째 row
@@ -126,7 +127,7 @@ function createTable(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     var checktd = document.getElementById(arr[i]);
-    checktd.style.backgroundColor = "gray";
+    checktd.style.backgroundColor = "#808cbc";
   }
 }
 

@@ -66,7 +66,7 @@ function info_save() {
           }
         });
         // 선택한 정보 전달 graduation에서 선택한 정보임을 전달
-        alert("upload완료");
+        alert("Upload Info");
       },
       error: function (result) {
         console.log(sendFile);

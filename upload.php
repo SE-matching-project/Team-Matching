@@ -4,7 +4,7 @@ $id=$_SESSION["id"];//로그인 한 id
 $jsonData = $_POST["sendFile"];//선택한 정보 json
 $fileName = $_POST["fileName"];//Graduation
 
-$f_Name = "data/Graduation/GraduationID.json";//id만 따로 저장해두는 file
+$f_Name = "data/Graduation/chatRoom.json";//id만 따로 저장해두는 file
 
 
 $f_w=fopen($f_Name,"a+");

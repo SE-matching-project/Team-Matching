@@ -1,7 +1,12 @@
 <?php
 $jsdata = $_POST["jsonData"];
+$ClassOrGrad=$_POST['class'];
+if($ClassOrGrad==="class"){
+$pfile1 = fopen("./data/Class"."/chatRoom.json", "a+");
+}else if($ClassOrGrad==="grad"){
+$pfile1 = fopen("./data/Graduation"."/chatRoom.json", "a+");
+}
 
-$pfile1 = fopen("./data/".$_POST['class']."/chatRoom.json", "a+");
 fwrite($pfile1, $jsdata);
 fwrite($pfile1,"\n");
 fclose($pfile1);

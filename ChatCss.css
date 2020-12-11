@@ -1,11 +1,11 @@
 
 .row{
     padding-top: 10%;
+    text-align: right;
 }
 .bordered {
     *border-collapse: collapse; /* IE7 and lower */
     border-spacing: 0;
-    width: 1000px;
     border: solid #ccc 1px;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
@@ -81,7 +81,6 @@
 }
   
 #create_chatroom {
-    margin: 0.2em 0.1em;
     padding: 0;
     border-width: 0;
     border-color: transparent;
@@ -92,9 +91,7 @@
     font-family: inherit;
     padding: 0.3em 0.5em;
 
-    top: 100px;
-    left: 100px;
-    
+    margin : 1em;
     overflow: hidden;
     border-width: 0;
     border-radius: 0.3em;
@@ -102,7 +99,9 @@
     -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     color: black;
-    font-size: 18px;
+    font-size: 17px;
+    font-weight: 600;
+    disply: inline;
 }
 
 #create_chatroom:hover,
@@ -110,17 +109,30 @@
     opacity: 0.75;
 }
 
+.Day {
+    font-weight: 500;
+    background-color: #c2c9dd;
+    color: white;
+}
+
 #timetable {
-    width: 30%;
-    height:50%;
+    width: 35%;
     border: 1px solid black;
     border-collapse: collapse;
-
 }
+
 th,tr, td{
     border: 1px solid black;
     border-collapse: collapse;
 }
+#tooltip{
+    text-align: left;
+}
 p{
+    font-size:16px;
+    margin-top: 0.5em;
+}
+#score {
     font-size:20px;
+    font-weight: bold;
 }
