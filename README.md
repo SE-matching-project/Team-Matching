@@ -1,4 +1,5 @@
 # Software Engineering Team Project
+## Team Members
 201802066 김소영
 201802085 김효린
 201802094 박소희
@@ -14,5 +15,8 @@ Website that helps college students to make their teams for team projects.
 3. Team Matching for graduation project
 4. Chatting with team
 
+## Tech Stack
 
-URL: http://35.200.36.65/TTMS/Main.php
+
+
+URL: http://35.200.36.65/TTMS/Main.php (Now unavailable 💸💸)
